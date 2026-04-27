@@ -1,0 +1,10 @@
+{
+    "qqbot": {
+        "enabled": true,
+        "allowFrom": [
+          "*"
+        ],
+        "appId": "1903485149",
+        "clientSecret": "NID952049FLSair0ALWiv8Map5LcuCVp"
+    }
+}

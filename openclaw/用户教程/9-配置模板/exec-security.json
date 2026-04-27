@@ -1,0 +1,33 @@
+
+{
+    "channels": {
+      "qqbot": {
+        "enabled": true,
+        "appId": "",
+        "clientSecret": "",
+        "allowFrom": ["*"]   // 建议收紧为你的 QQ 号
+      },
+      "feishu": {
+        "enabled": true,
+        // ... 你的飞书凭证
+      }
+    },
+    "tools": {
+      "profile": "coding",
+      "exec": {
+        "host": "gateway",
+        "security": "allowlist",
+        "ask": "on-miss"
+      }
+    },
+    "approvals": {
+      "exec": {
+        "enabled": true,
+        "mode": "targets",
+        "targets": [
+          { "channel": "qqbot", "to": "123456789" },      // 替换为你的 QQ 号
+          { "channel": "feishu", "to": "user@company.com" } // 替换为你的飞书 user_id
+        ]
+      }
+    }
+}

@@ -1,0 +1,65 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "bailian/qwen3.5-plus"
+      },
+      "models": {
+        "bailian/qwen3.5-plus": {}
+      }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "code",
+        "workspace": "/home/openclaw/.openclaw/workspace-code",
+        "agentDir": "/home/openclaw/.openclaw/agents/code/agent",
+        "model": {
+          "primary": "bailian/qwen3-coder-next"
+        }
+      }
+    ]
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "defaultAccount": "fs_xiamei",
+      "connectionMode": "websocket",
+      "domain": "feishu",
+      "accounts": {
+        "fs_xiamei": {
+          "appId": "cli_a93bc7178b789cc0",
+          "appSecret": "3iqp8ICKxsfVWiGWIyNeFee7A1GTx4s4"
+        },
+        "fs_xiage": {
+          "appId": "cli_a93b1d079e785cb5",
+          "appSecret": "5Jn0V9YrOstNF10bOdVCmbwXpmjLgp1I"
+        },
+        "default": {
+          "dmPolicy": "pairing",
+          "allowFrom": [
+            "*"
+          ]
+        }
+      }
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "feishu",
+        "accountId": "fs_xiamei"
+      }
+    },
+    {
+      "agentId": "code",
+      "match": {
+        "channel": "feishu",
+        "accountId": "fs_xiage"
+      }
+    }
+  ]
+}

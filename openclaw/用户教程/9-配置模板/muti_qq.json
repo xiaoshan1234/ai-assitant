@@ -1,0 +1,16 @@
+{
+  "qqbot": {
+    "enabled": true,
+    "accounts": {
+      "qq_xiazg_2925": {
+        "name": "虾总管-2925",
+        "appId": "1903518981",
+        "clientSecret": "0vc6LNBl9KJdomY7",
+        "allowFrom": [
+          "*"
+        ]
+      }
+   }
+  }
+
+}

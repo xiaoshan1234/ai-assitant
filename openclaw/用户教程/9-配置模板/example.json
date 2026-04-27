@@ -1,0 +1,347 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.7",
+    "lastTouchedAt": "2026-03-11T17:46:47.642Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-11T17:46:47.594Z",
+    "lastRunVersion": "2026.3.7",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "qwen-portal:default": {
+        "provider": "qwen-portal",
+        "mode": "oauth"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "bailian": {
+        "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "apiKey": "sk-d383325a3a6542bcb387fb82bb754dd0",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3.5-plus",
+            "name": "qwen3.5-plus",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3-max-2026-01-23",
+            "name": "qwen3-max-2026-01-23",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3-coder-next",
+            "name": "qwen3-coder-next",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3-coder-plus",
+            "name": "qwen3-coder-plus",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          },
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax-M2.5",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 196608,
+            "maxTokens": 32768
+          },
+          {
+            "id": "glm-5",
+            "name": "glm-5",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 202752,
+            "maxTokens": 16384
+          },
+          {
+            "id": "glm-4.7",
+            "name": "glm-4.7",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 202752,
+            "maxTokens": 16384
+          },
+          {
+            "id": "kimi-k2.5",
+            "name": "kimi-k2.5",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 32768
+          }
+        ]
+      },
+      "custom-api-deepseek-com": {
+        "baseUrl": "https://api.deepseek.com",
+        "apiKey": "sk-c8733668c62247a695ceaf055b2124ed",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "deepseek-chat",
+            "name": "deepseek-chat (Custom Provider)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 16000,
+            "maxTokens": 4096
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "bailian/qwen3.5-plus"
+      },
+      "models": {
+        "bailian/qwen3.5-plus": {},
+        "bailian/qwen3-max-2026-01-23": {},
+        "bailian/qwen3-coder-next": {},
+        "bailian/qwen3-coder-plus": {},
+        "bailian/MiniMax-M2.5": {},
+        "bailian/glm-5": {},
+        "bailian/glm-4.7": {},
+        "bailian/kimi-k2.5": {},
+        "custom-api-deepseek-com/deepseek-chat": {}
+      }
+    },
+    "list": [
+      {
+        "id": "main_agent"
+      },
+      {
+        "id": "code_agent",
+        "name": "code",
+        "workspace": "/home/openclaw/.openclaw/workspace-code",
+        "agentDir": "/home/openclaw/.openclaw/agents/code/agent",
+        "model": {
+          "primary": "bailian/qwen3-coder-next"
+        }
+      }
+    ]
+  },
+  "tools": {
+    "profile": "full",
+    "exec": {
+      "host": "gateway",
+      "security": "full",
+      "ask": "on-miss"
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "main_agent",
+      "match": {
+        "channel": "feishu",
+        "accountId": "fs_xiamei"
+      }
+    },
+    {
+      "agentId": "code_agent",
+      "match": {
+        "channel": "feishu",
+        "accountId": "fs_xiage"
+      }
+    }
+  ],
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "channels": {
+    "qqbot": {
+      "enabled": true,
+      "allowFrom": [
+        "*"
+      ],
+      "appId": "1903241537",
+      "clientSecret": "jOq5CC1d0A6vXv67"
+    },
+    "feishu": {
+      "enabled": true,
+      "defaultAccount": "fs_xiamei",
+      "connectionMode": "websocket",
+      "domain": "feishu",
+      "dmPolicy": "open",
+      "allowFrom": [
+            "*"
+      ],
+      "accounts": {
+        "fs_xiamei": {
+          "appId": "cli_a93bc7178b789cc0",
+          "appSecret": "3iqp8ICKxsfVWiGWIyNeFee7A1GTx4s4",
+          "botName": "虾妹"
+        },
+        "fs_xiage": {
+          "appId": "cli_a93b1d079e785cb5",
+          "appSecret": "5Jn0V9YrOstNF10bOdVCmbwXpmjLgp1I",
+          "botName": "虾哥"
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "be5dbcbb2fe18237c8ffdbbc6d188ccbcb3cddc896f3a682"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send"
+      ]
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  },
+  "plugins": {
+    "allow": [
+      "qqbot",
+      "feishu",
+      "qwen-portal-auth"
+    ],
+    "entries": {
+      "qwen-portal-auth": {
+        "enabled": true
+      },
+      "qqbot": {
+        "enabled": true
+      },
+      "feishu": {
+        "enabled": true
+      }
+    },
+    "installs": {
+      "qqbot": {
+        "source": "npm",
+        "spec": "@sliverp/qqbot@latest",
+        "installPath": "/home/openclaw/.openclaw/extensions/qqbot",
+        "version": "1.5.3",
+        "resolvedName": "@sliverp/qqbot",
+        "resolvedVersion": "1.5.3",
+        "resolvedSpec": "@sliverp/qqbot@1.5.3",
+        "integrity": "sha512-32g2LLjdGrZEOmw5umel0DuWfRyw2HYX3P6lafFapt/98CF+2LsyAXCYBhkpTS0gN9j/pvQpLYcPilO9mWAScA==",
+        "shasum": "8bc609f0a01315ab2c958915ccbff54e3881b868",
+        "resolvedAt": "2026-03-10T01:49:20.557Z",
+        "installedAt": "2026-03-10T01:50:57.561Z"
+      }
+    }
+  }
+}
